@@ -27,3 +27,14 @@ $ ./local/init-cluster.sh
 ## the script will add the following entry in /etc/hosts
 ## 127.0.0.1 argocd.local
 ```
+
+## How to destroy the local cluster
+
+```sh
+# run
+$ ./local/init-destruction.sh
+
+# NOTE
+## you should clean your /etc/hosts file, by removing:
+## 127.0.0.1 argocd.local
+```
