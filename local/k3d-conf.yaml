@@ -1,0 +1,35 @@
+# ----------------------------------------------------------
+# Setup a local kubernetes cluster with K3D and config file
+# ----------------------------------------------------------
+---
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  # the name will be prefixed with "k3d-"
+  name: learn-atlas
+image: rancher/k3s:v1.24.12-k3s1
+servers: 1
+agents: 2
+ports:
+  - port: 80:80 # same as `--port '8080:80@loadbalancer'`
+    nodeFilters:
+      - loadbalancer
+options:
+  kubeconfig:
+    updateDefaultKubeconfig: true # default = true
+    switchCurrentContext: true # default = true
+# options:
+#   k3s:
+#     extraServerArgs:
+#     - --no-deploy=traefik
+## -----------------------
+## registry is optional
+## -----------------------
+# registries:
+#   create:
+#     name: myregistry
+#   config: |
+#     mirrors:
+#       "my.company.registry":
+#         endpoint:
+#           - http://my.company.registry:5000
