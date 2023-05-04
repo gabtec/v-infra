@@ -21,7 +21,8 @@ This repo is part of a bigger project:
 # --> setup the cluster loadBalancer (traefik) port: ports.port: <the-desired-port-number>:80
 
 # run
-$ ./local/init-cluster.sh
+$ cd local
+$ ./init-cluster.sh
 
 # NOTE
 ## the script will add the following entry in /etc/hosts
@@ -32,7 +33,8 @@ $ ./local/init-cluster.sh
 
 ```sh
 # run
-$ ./local/init-destruction.sh
+$ cd local
+$ ./init-destruction.sh
 
 # NOTE
 ## you should clean your /etc/hosts file, by removing:

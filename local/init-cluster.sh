@@ -17,7 +17,7 @@ if [ ! -e "k3d-conf.yaml" ]; then
   exit 1
 fi 
 
-k3d cluster create --config ./k3d-conf.yaml
+#k3d cluster create --config ./k3d-conf.yaml
 
 echo "[ INFO:] Done. Cluster created."
 
@@ -34,6 +34,8 @@ echo "[INFO:] Switching context..."
 kubectl config use-context k3d-${KLUSTER_NAME## }
 
 echo "[INFO:] Installing ArgoCD..."
+
+sleep 2
 
 ./argocd/install.sh
 
